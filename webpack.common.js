@@ -17,7 +17,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'], // Загрузка CSS
+        use: ['style-loader', 'css-loader', 'postcss-loader'], // Загрузка CSS
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/, // Поддержка изображений
