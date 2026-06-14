@@ -6,6 +6,14 @@ const webpack = require('webpack');
 module.exports = merge(common, {
   mode: 'development',
   devtool: 'inline-source-map', // Источники карты для отладки
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
+      },
+    ],
+  },
   devServer: {
     static: {
       directory: path.join(__dirname, 'public'), // Папка для статических файлов

@@ -16,32 +16,18 @@ module.exports = {
         use: 'babel-loader',
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader'], // Загрузка CSS
+        test: /\.(png|jpe?g|gif|svg)$/i, // Поддержка изображений
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/images/[name].[contenthash][ext]',
+        },
       },
       {
-        test: /\.(png|jpe?g|gif|svg)$/, // Поддержка изображений
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[path][name].[ext]', // Сохранение исходного пути и имени файла
-              context: 'src',
-            },
-          },
-        ],
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/, // Поддержка шрифтов
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[path][name].[ext]', // Сохранение исходного пути и имени файла
-              context: 'src',
-            },
-          },
-        ],
+        test: /\.(woff|woff2|eot|ttf|otf)$/i, // Поддержка шрифтов
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/fonts/[name].[contenthash][ext]',
+        },
       },
     ],
   },

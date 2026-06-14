@@ -12,6 +12,14 @@ module.exports = merge(common, {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/', // Укажите правильный путь в зависимости от вашего деплоймента
   },
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
+      },
+    ],
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({

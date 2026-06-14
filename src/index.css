@@ -1,13 +1,34 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 body, html {
-    margin: 0;
-    padding: 0;
-  }
-  
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
 #root {
-    max-width: 100vw;
-    max-height: 100vh;
+  width: 100%;
+  min-height: 100vh;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+.page-transition {
+  animation: pageFadeIn 0.28s ease;
+  overflow-x: clip;
+  transform-origin: top center;
+  will-change: opacity, transform;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.992);
   }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
